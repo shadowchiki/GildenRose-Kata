@@ -6,9 +6,10 @@
 class ItemHandle
 {
 public:
-    explicit ItemHandle(std::shared_ptr<ItemHandle> next);
+    ItemHandle() = default;
     virtual ~ItemHandle() = default;
     virtual void handle(Item& item);
+    virtual void setNext(shared_ptr<ItemHandle> next);
 
 protected:
     virtual void makeHandle(Item& item) = 0;

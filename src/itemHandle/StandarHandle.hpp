@@ -1,4 +1,3 @@
-#include <memory>
 #include <string>
 #include <vector>
 #include "itemHandle/ItemHandle.hpp"
@@ -6,9 +5,10 @@
 class StandarHandle : public ItemHandle
 {
 public:
-    StandarHandle(std::shared_ptr<ItemHandle> next);
+    StandarHandle();
     virtual ~StandarHandle() = default;
     virtual void handle(Item& item) override;
+    virtual void setNext(std::shared_ptr<ItemHandle> next) override;
 
 protected:
     virtual void makeHandle(Item& item) override;

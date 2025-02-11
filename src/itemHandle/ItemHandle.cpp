@@ -1,10 +1,4 @@
 #include "ItemHandle.hpp"
-#include <memory>
-
-ItemHandle::ItemHandle(std::shared_ptr<ItemHandle> next)
-    : m_next(next)
-{
-}
 
 void ItemHandle::handle(Item& item)
 {
@@ -15,5 +9,17 @@ void ItemHandle::handle(Item& item)
     else if (m_next)
     {
         m_next->handle(item);
+    }
+}
+
+void ItemHandle::setNext(std::shared_ptr<ItemHandle> next)
+{
+    if (!m_next)
+    {
+        m_next->setNext(next);
+    }
+    else
+    {
+        m_next = next;
     }
 }

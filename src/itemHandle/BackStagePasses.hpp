@@ -6,9 +6,10 @@
 class BackStagePasses : public ItemHandle
 {
 public:
-    BackStagePasses(std::shared_ptr<ItemHandle> next);
+    BackStagePasses() = default;
     virtual ~BackStagePasses() = default;
     virtual void handle(Item& item) override;
+    virtual void setNext(std::shared_ptr<ItemHandle> next) override;
 
 protected:
     virtual void makeHandle(Item& item) override;

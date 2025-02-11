@@ -1,9 +1,8 @@
 #include "StandarHandle.hpp"
 #include <algorithm>
-#include <memory>
 
-StandarHandle::StandarHandle(std::shared_ptr<ItemHandle> next)
-    : ItemHandle(next)
+StandarHandle::StandarHandle()
+    : ItemHandle()
     , m_standarItemName()
 {
     m_standarItemName.push_back({"Elixir of the Mongoose"});
@@ -14,6 +13,11 @@ StandarHandle::StandarHandle(std::shared_ptr<ItemHandle> next)
 void StandarHandle::handle(Item& item)
 {
     ItemHandle::handle(item);
+}
+
+void StandarHandle::setNext(std::shared_ptr<ItemHandle> next)
+{
+    ItemHandle::setNext(next);
 }
 
 void StandarHandle::makeHandle(Item& item)

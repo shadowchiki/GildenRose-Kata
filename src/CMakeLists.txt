@@ -10,7 +10,11 @@ add_library(
   itemHandle/StandarHandle.hpp
   itemHandle/StandarHandle.cpp
   itemHandle/Sulfuras.hpp
-  itemHandle/Sulfuras.cpp)
+  itemHandle/Sulfuras.cpp
+  itemHandle/ItemHandleBuilder.hpp
+  itemHandle/ItemHandleBuilder.cpp
+)
+
 
 target_sources(${SRC_LIB_NAME} PRIVATE GildedRose.cc)
 target_include_directories(${SRC_LIB_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

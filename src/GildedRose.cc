@@ -1,10 +1,7 @@
 #include "GildedRose.h"
 #include <memory>
-#include "itemHandle/AgedBrieHandle.hpp"
-#include "itemHandle/BackStagePasses.hpp"
 #include "itemHandle/ItemHandle.hpp"
-#include "itemHandle/StandarHandle.hpp"
-#include "itemHandle/Sulfuras.hpp"
+#include "itemHandle/ItemHandleBuilder.hpp"
 
 GildedRose::GildedRose(vector<Item>& items)
     : items(items)
@@ -13,14 +10,11 @@ GildedRose::GildedRose(vector<Item>& items)
 
 void GildedRose::updateQuality()
 {
-    std::shared_ptr<ItemHandle> sulfurasHandle = std::make_shared<Sulfuras>(nullptr);
-    std::shared_ptr<ItemHandle> ageBrieHandle = std::make_shared<AgedBrieHandle>(sulfurasHandle);
-    std::shared_ptr<ItemHandle> backStagePassHandle =
-        std::make_shared<BackStagePasses>(ageBrieHandle);
-    StandarHandle handle(backStagePassHandle);
+    ItemHandleBuilder builder;
+    std::shared_ptr<ItemHandle> handle = builder.agedBrie()->backstage()->sulfuras()->build();
 
     for (int i = 0; i < items.size(); i++)
     {
-        handle.handle(items[i]);
+        handle->handle(items[i]);
     }
 }

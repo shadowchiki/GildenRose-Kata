@@ -1,13 +1,13 @@
 #include "Sulfuras.hpp"
 
-Sulfuras::Sulfuras(std::shared_ptr<ItemHandle> next)
-    : ItemHandle(next)
-{
-}
-
 void Sulfuras::handle(Item& item)
 {
     ItemHandle::handle(item);
+}
+
+void Sulfuras::setNext(std::shared_ptr<ItemHandle> next)
+{
+    ItemHandle::setNext(next);
 }
 
 void Sulfuras::makeHandle(Item& item)

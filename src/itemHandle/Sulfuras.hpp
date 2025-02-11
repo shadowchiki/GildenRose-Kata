@@ -6,9 +6,10 @@
 class Sulfuras : public ItemHandle
 {
 public:
-    Sulfuras(std::shared_ptr<ItemHandle> next);
+    Sulfuras() = default;
     virtual ~Sulfuras() = default;
     virtual void handle(Item& item) override;
+    virtual void setNext(std::shared_ptr<ItemHandle> next) override;
 
 protected:
     virtual void makeHandle(Item& item) override;

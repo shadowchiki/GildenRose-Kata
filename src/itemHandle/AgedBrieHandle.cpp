@@ -1,13 +1,18 @@
 #include "AgedBrieHandle.hpp"
 
-AgedBrieHandle::AgedBrieHandle(std::shared_ptr<ItemHandle> next)
-    : ItemHandle(next)
+AgedBrieHandle::AgedBrieHandle()
+    : ItemHandle()
 {
 }
 
 void AgedBrieHandle::handle(Item& item)
 {
     ItemHandle::handle(item);
+}
+
+void AgedBrieHandle::setNext(std::shared_ptr<ItemHandle> next)
+{
+    ItemHandle::setNext(next);
 }
 
 void AgedBrieHandle::makeHandle(Item& item)

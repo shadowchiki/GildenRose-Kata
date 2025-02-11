@@ -6,9 +6,10 @@
 class AgedBrieHandle : public ItemHandle
 {
 public:
-    AgedBrieHandle(std::shared_ptr<ItemHandle> next);
+    AgedBrieHandle();
     virtual ~AgedBrieHandle() = default;
     virtual void handle(Item& item) override;
+    virtual void setNext(std::shared_ptr<ItemHandle> next) override;
 
 protected:
     virtual void makeHandle(Item& item) override;
